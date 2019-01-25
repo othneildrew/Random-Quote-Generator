@@ -7,36 +7,43 @@ FSJS project 1 - A Random Quote Generator
 let quotes = [
   {
     quote: 'Life is 10% what happens to me and 90% of how I react to it.',
-    source: 'Charles Swindoll'
+    source: 'Charles Swindoll',
+    category: 'motivation'
   },
   {
     quote: 'You can never cross the ocean until you have the courage to lose sight of the shore.',
-    source: 'Christopher Columbus'
+    source: 'Christopher Columbus',
+    category: 'courage'
   },
   {
     quote: 'The two most important days in your life are the day you are born and the day you find out why.',
-    source: 'Mark Twain'
+    source: 'Mark Twain',
+    category: 'purpose'
   },
   {
     quote: 'There are no traffic jams along the extra mile',
-    source: 'Roger Staubach'
+    source: 'Roger Staubach',
+    category: 'motivation'
   },
   {
     quote: 'Get busy living or get busy dying.',
     source: 'Tim Robbins (as Andy Dufresne)',
     citation: 'The Shawshank Redemption',
-    year: 1994
+    year: 1994,
+    category: 'movies'
   },
   {
     quote: 'The world is yours...',
     source: 'Tony Montana (as Scarface)',
     citation: 'Scarface',
-    year: 1983
+    year: 1983,
+    category: 'movies'
   },
   {
     quote: 'Only greatness pays, forget average.',
     source: 'Othneil Drew',
-    year: 2018
+    year: 2018,
+    category: 'movies'
   }
 ];
 
@@ -59,13 +66,15 @@ function getRandomQuote() {
 function printQuote() {
   let quoteObj = getRandomQuote();
 
-  // Use ternary operators to set quoteCitation and quoteYear values
+  // Use ternary operators to set quoteCitation, quoteYear, and quoteCat values
   let quoteCitation = quoteObj.hasOwnProperty('citation') ? '<span class="citation">'+ quoteObj.citation +'</span>' : '';
 
   let quoteYear = quoteObj.hasOwnProperty('year') ? '<span class="year">'+ quoteObj.year +'<span>' : '';
 
-  // Create quote-box HTML string
-  let quoteBox = '<div id="quote-box"><p class="quote">'+ quoteObj.quote +'</p><p class="source">'+ quoteObj.source + quoteCitation + quoteYear +'</p></div>';
+  let quoteCat = quoteObj.hasOwnProperty('category') ? '<span class="category">'+ quoteObj.category +'<span>' : '';
+
+    // Create quote-box HTML string
+  let quoteBox = '<div id="quote-box"><p class="quote">'+ quoteObj.quote +'</p><p class="source">'+ quoteObj.source + quoteCitation + quoteYear +'</p>'+ quoteCat +'</div>';
 
   document.getElementById('quote-box').innerHTML = quoteBox;
 }
