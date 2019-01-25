@@ -47,6 +47,8 @@ let quotes = [
   }
 ];
 
+let autoTimer;
+
 
 
 // Generator random number then return a quote object
@@ -60,6 +62,18 @@ function getRandomQuote() {
   return quotes[randomNumber];
 }
 
+
+// Clear the timeout function
+function clearAutoQuote() {
+  window.clearTimeout(autoTimer);
+}
+
+
+// Create a function that changes the quote automatically after 5 seconds
+function autoChangeQuote() {
+  clearAutoQuote();
+  autoTimer = window.setTimeout(printQuote, 5000);
+}
 
 
 // Create dynamic HTML string and replace quote-box
@@ -77,6 +91,8 @@ function printQuote() {
   let quoteBox = '<div id="quote-box"><p class="quote">'+ quoteObj.quote +'</p><p class="source">'+ quoteObj.source + quoteCitation + quoteYear +'</p>'+ quoteCat +'</div>';
 
   document.getElementById('quote-box').innerHTML = quoteBox;
+
+  autoChangeQuote();
 }
 
 
