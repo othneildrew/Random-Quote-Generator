@@ -3,53 +3,74 @@ Treehouse Techdegree:
 FSJS project 1 - A Random Quote Generator
 ******************************************/
 
-// Study guide for this project - https://drive.google.com/file/d/1s5grutGuQFwJcQP8bFwEI69Q8FCkGdDk/view?usp=sharing
+// Create array of quotes
+let quotes = [
+  {
+    quote: 'Life is 10% what happens to me and 90% of how I react to it.',
+    source: 'Charles Swindoll'
+  },
+  {
+    quote: 'You can never cross the ocean until you have the courage to lose sight of the shore.',
+    source: 'Christopher Columbus'
+  },
+  {
+    quote: 'The two most important days in your life are the day you are born and the day you find out why.',
+    source: 'Mark Twain'
+  },
+  {
+    quote: 'There are no traffic jams along the extra mile',
+    source: 'Roger Staubach'
+  },
+  {
+    quote: 'Get busy living or get busy dying.',
+    source: 'Tim Robbins (as Andy Dufresne)',
+    citation: 'The Shawshank Redemption',
+    year: 1994
+  },
+  {
+    quote: 'The world is yours...',
+    source: 'Tony Montana (as Scarface)',
+    citation: 'Scarface',
+    year: 1983
+  },
+  {
+    quote: 'Only greatness pays, forget average.',
+    source: 'Othneil Drew',
+    year: 2018
+  }
+];
 
 
-/*** 
-  Create the array of quote objects and name it `quotes`.
-  Add at least five quote objects to the `quotes` array.
-  Give each quote object a `quote` and `source` property.
 
-  Recommended: 
-    - Add at least one `year` and/or `citation` property to at least one 
-      quote object.
-***/
+// Generator random number then return a quote object
+function getRandomQuote() {
+  // Generate a random number
+  function generateRandomNo(maxNo) {
+    return Math.floor(Math.random() * Math.floor(maxNo));
+  }
 
-
-
-
-/***
-  Create the `getRandomQuote` function to:
-   - generate a random number 
-   - use the random number to `return` a random quote object from the 
-     `quotes` array.
-***/
+  let randomNumber = generateRandomNo(quotes.length);
+  return quotes[randomNumber];
+}
 
 
 
+// Create dynamic HTML string and replace quote-box
+function printQuote() {
+  let quoteObj = getRandomQuote();
 
-/***
-  Create the `printQuote` function to: 
-   - call the `getRandomQuote` function and assign it to a variable.
-   - use the properties of the quote object stored in the variable to 
-     create your HTML string.
-   - use conditionals to make sure the optional properties exist before 
-     they are added to the HTML string.
-   - set the `innerHTML` of the `quote-box` div to the HTML string. 
-***/
+  // Use ternary operators to set quoteCitation and quoteYear values
+  let quoteCitation = quoteObj.hasOwnProperty('citation') ? '<span class="citation">'+ quoteObj.citation +'</span>' : '';
+
+  let quoteYear = quoteObj.hasOwnProperty('year') ? '<span class="year">'+ quoteObj.year +'<span>' : '';
+
+  // Create quote-box HTML string
+  let quoteBox = '<div id="quote-box"><p class="quote">'+ quoteObj.quote +'</p><p class="source">'+ quoteObj.source + quoteCitation + quoteYear +'</p></div>';
+
+  document.getElementById('quote-box').innerHTML = quoteBox;
+}
 
 
 
-
-/***
-  When the "Show another quote" button is clicked, the event listener 
-  below will be triggered, and it will call, or "invoke", the `printQuote` 
-  function. So do not make any changes to the line of code below this 
-  comment.
-***/
-
+// On "Show another quote" button click, print a new random quote
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
-
-
-// Remember to delete the comments that came with this file, and replace them with your own code comments.
