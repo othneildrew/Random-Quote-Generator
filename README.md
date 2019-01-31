@@ -48,7 +48,7 @@ This project is part of the Team Treehouse [Full Stack JavaScript Techdegree](ht
 
 1. Clone the repo
 ```sh
-git clone https:://github.com/othneildrew/Random-Quote-Generator.git
+git clone https://github.com/othneildrew/Random-Quote-Generator.git
 ```
 2. Enjoy
 
