@@ -34,9 +34,9 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![https://www.othneildrew.com][product-screenshot]](https://www.othneildrew.com)
+[![Random-Quote-Generator Project Screenshot][product-screenshot]](https://www.othneildrew.com/Random-Quote-Generator)
 
-This project is part of the Team Treehouse [Full Stack JavaScript Techdegree](https://join.teamtreehouse.com/techdegree/) program.
+This project is part of the Team Treehouse [Full Stack JavaScript Techdegree](https://join.teamtreehouse.com/techdegree) program.
 
 ### Built With
 
